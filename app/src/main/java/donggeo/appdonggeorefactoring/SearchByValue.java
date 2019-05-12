@@ -8,27 +8,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
+import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
+import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
+
+import donggeo.appdonggeorefactoring.HttpRequest.GetData;
 
 public class SearchByValue extends AppCompatActivity {
 
-    public Context context;
+    public static Context context;
 
     String[] exchangeRate = {
             "유럽연합 EUR",  "독익 EUR", "프랑스 EUR", "이탈리아 EUR", "스페인 EUR", "포르투갈 EUR", "그리스 EUR", "네덜란드 EUR", "오스트리아 EUR", "벨기에 EUR", "아일랜드 EUR", "슬로바키아 EUR", "리투아니아 EUR", "핀란드 EUR", //유럽 코드 1
             "영국 GBP",  "스위스 CHF", "스웨덴 SEK", "체코 CZK", "덴마크 DKK", "노르웨이 NOK", "러시아 RUB", "폴란드 PLN", //유럽 코드 1
-            "일본 JPY", "중국 CNY", "홍콩 HKD", "대만 TWD",  "몽골 MNT", "카자흐스탄 KZT", "인도 INR","파키스탄 PKR", // 동아시아 코드 2
-            "태국 THB", "싱가포르 SGD", "말레이시아 MYR", "인도네시아 IDR",  "브루나이 BND", "베트남 VND",// 동남 아시아 코드 3
-            "오만 OMR",  "터키 TRY", "이스라엘 ILS", "사우디아라비아 SAR", "쿠웨이트 KWD", "바레 BHD",  "아랍에미리트 AED", "요르단 JOD",  "카타르 QAR", //중동 코드 4
-            "호주 AUD", "뉴질랜드 NZD", //오세아니아 코드 5
-            "캐나다 CAD", "미국 USD", //북아메리카 코드 6
-            "칠레 CLP", "브라질 BRL",  // 남아메리카 코드 7
-            "이집트 EGP", "남아공 ZAR", // 아프리카 코드 8
+            "일본 JPY", "중국 CNY", "홍콩 HKD", "대만 TWD",  "몽골 MNT", "카자흐스탄 KZT", "인도 INR","파키스탄 PKR",
+            "태국 THB", "싱가포르 SGD", "말레이시아 MYR", "인도네시아 IDR",  "브루나이 BND", "베트남 VND",
+            "오만 OMR",  "터키 TRY", "이스라엘 ILS", "사우디아라비아 SAR", "쿠웨이트 KWD", "바레 BHD",  "아랍에미리트 AED", "요르단 JOD",  "카타르 QAR", //아시아 코드 2
+            "호주 AUD", "뉴질랜드 NZD", //오세아니아 코드 3
+            "캐나다 CAD", "미국 USD",
+            "칠레 CLP", "브라질 BRL",  // 아메리카 코드 4
+            "이집트 EGP", "남아공 ZAR", // 아프리카 코드 5
     };
     String[] school_item = { "가톨릭대학교", "감리교신학대학교", "건국대학교", "경희대학교", "고려대학교", "광운대학교", "국민대학교",
             "덕성여자대학교", "동국대학교", "동덕여자대학교", "명지대학교", "삼육대학교", "상명대학교", "서강대학교",
@@ -44,28 +52,27 @@ public class SearchByValue extends AppCompatActivity {
     Number minCost;
     Number maxCost;
 
-    public SearchByValue(Context context) {
-        this.context = context;
-    }
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        Intent intent;
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_main:
-                    Intent intent1 = new Intent(context, MainActivity.class);
-                    context.startActivity(intent1);
+                    intent = new Intent(SearchByValue.this, MainActivity.class);
+                    context.startActivity(intent);
+                    return true;
                 case R.id.navigation_search:
-                    Intent intent2 = new Intent(context, SearchByValue.class);
-                    context.startActivity(intent2);
-                /*case R.id.navigation_write:
-                    Intent intent3 = new Intent(context, WritePostActivity.class);
-                    context.startActivity(intent3);
+                    intent = new Intent(SearchByValue.this, SearchByValue.class);
+                    context.startActivity(intent);
+                    return true;
+                case R.id.navigation_write:
+                    intent = new Intent(SearchByValue.this, WritePostActivity.class);
+                    startActivity(intent);
+                    return true;
                 case R.id.navigation_mypage:
-                    Intent intent4 = new Intent(context, MypageActivity.class);
-                    context.startActivity(intent4);*/
+                    return true;
             }
             return false;
         }
@@ -81,11 +88,11 @@ public class SearchByValue extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
-/*        exchangeInput = (EditText)findViewById(R.id.search_exchangeInput);
+        exchangeInput = (EditText)findViewById(R.id.search_exchangeInput);
         schoolInput =  (EditText)findViewById(R.id.search_schoolInput);
 
         // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) findViewById(R.id.search_rangeSeekbar3);
+/*        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) findViewById(R.id.search_rangeSeekbar3);
 
         // get min and max text view
         final TextView tvMin = (TextView)findViewById(R.id.textMin);
@@ -109,6 +116,7 @@ public class SearchByValue extends AppCompatActivity {
                 Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
             }
         });
+*/
 
         AutoCompleteTextView exchangeView = (AutoCompleteTextView) findViewById(R.id.search_exchangeInput);
 
@@ -121,6 +129,39 @@ public class SearchByValue extends AppCompatActivity {
         schoolView.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, school_item));
 
-        im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);*/
+        im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+    }
+
+    public void onClick(View v){
+
+        switch (v.getId()){
+            case R.id.seachButton:
+                try {
+                    String exchange = exchangeInput.getText().toString().split(" ")[1];
+//                int price = Integer.parseInt(priceInput.getText().toString());
+                    String school = schoolInput.getText().toString().split(",")[0];
+
+//                long now = System.currentTimeMillis();
+//                Date date = new Date(now);
+//                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//                final String getTime = sdf.format(date); // 현재 날짜 가져오기
+
+                    Toast.makeText(this, "통화 " + exchange + " 금액 " + minCost +"~" + maxCost + " 학교 " + school, Toast.LENGTH_LONG).show();
+//                Log.i("write", "price" + price + "exchange" + exchange);
+
+
+                    context = SearchByValue.this;
+                    GetData getData = new GetData(SearchByValue.this,null);
+                    getData.execute("http://13.124.152.254/dong_geo/search_detail.php?request_state='0'&request_currency='"+exchange+"'&request_min='"+minCost+"'&request_max="+maxCost+"&request_university1='"+school+"'");
+
+                }catch (Exception e){
+                    Toast.makeText(this, "전부 입력해주세요.", Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
+    }
+
+    public static Context getContext() {
+        return context;
     }
 }
