@@ -1,8 +1,10 @@
 package donggeo.appdonggeorefactoring.Callback;
 
-import com.example.jeonghyeongkim.dong_geo.DonggeoData;
+
 
 import java.util.ArrayList;
+import donggeo.appdonggeorefactoring.DonggeoData;
+
 
 public interface DonggeoDataCallback {
     public void onTaskDone(ArrayList<DonggeoData> donggeoData);

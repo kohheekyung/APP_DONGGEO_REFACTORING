@@ -7,13 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.jeonghyeongkim.dong_geo.Activity.MainActivity;
-import com.example.jeonghyeongkim.dong_geo.Activity.SearchBuyFragment;
-import com.example.jeonghyeongkim.dong_geo.Activity.SearchByContinent;
-import com.example.jeonghyeongkim.dong_geo.Activity.SearchByValue;
-import com.example.jeonghyeongkim.dong_geo.Activity.SearchResult;
-import com.example.jeonghyeongkim.dong_geo.Activity.SplashActivity;
-import com.example.jeonghyeongkim.dong_geo.Callback.ExchangeDataCallback;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,6 +18,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import donggeo.appdonggeorefactoring.Callback.ExchangeDataCallback;
 
 
 public class GetData extends AsyncTask<String, Void, String> {
@@ -58,7 +54,7 @@ public class GetData extends AsyncTask<String, Void, String> {
 //        progressDialog.dismiss();
         Log.d("php_get", "response  - " + s);
 
-        if (s == null) {
+        /*if (s == null) {
             Toast.makeText(mcontext, "Fail", Toast.LENGTH_LONG);
         } else {
             mJsonString = s;
@@ -84,10 +80,10 @@ public class GetData extends AsyncTask<String, Void, String> {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }
+            }*///띠로 떼서 getDataService로 바궈보자
 
         }
-    }
+
 
     @Override
     protected String doInBackground(String... strings) {
@@ -142,7 +138,7 @@ public class GetData extends AsyncTask<String, Void, String> {
         }
     }
 
-    private void showResult(Context context){
+    /*private void showResult(Context context){
         try{
             JSONObject jsonObject = new JSONObject(mJsonString);
             if(context == MainActivity.getContext()) {
@@ -198,7 +194,7 @@ public class GetData extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         }
 
-    }
+    }*/
 
     public void exchange_rate() throws JSONException {
         JSONArray jsonArray = new JSONArray(mJsonString);
