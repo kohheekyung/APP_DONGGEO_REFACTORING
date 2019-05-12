@@ -8,15 +8,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.jeonghyeongkim.dong_geo.Activity.MainActivity;
-import com.example.jeonghyeongkim.dong_geo.Activity.MypageActivity;
-import com.example.jeonghyeongkim.dong_geo.Activity.SearchByContinent;
-import com.example.jeonghyeongkim.dong_geo.Activity.SearchResult;
-import com.example.jeonghyeongkim.dong_geo.Callback.DonggeoDataCallback;
-import com.example.jeonghyeongkim.dong_geo.Callback.StringDataCallback;
-import com.example.jeonghyeongkim.dong_geo.DonggeoData;
-import com.example.jeonghyeongkim.dong_geo.ExchangeRate;
-import com.example.jeonghyeongkim.dong_geo.KaKao.KakaoIDInputActivity;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +26,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
+
+import donggeo.appdonggeorefactoring.Callback.DonggeoDataCallback;
+import donggeo.appdonggeorefactoring.Callback.StringDataCallback;
+import donggeo.appdonggeorefactoring.DonggeoData;
 
 import static java.lang.Integer.parseInt;
 
@@ -84,7 +80,7 @@ public class PostData extends AsyncTask<String, Void, String> {
 
         Log.d("check", "response_post  - " + s);
 
-        if (s == null) {
+        /*if (s == null) {
             //Log.d("fai")
             Toast.makeText(mcontext, "Fail", Toast.LENGTH_LONG);
 
@@ -103,10 +99,10 @@ public class PostData extends AsyncTask<String, Void, String> {
                 else
                     CardView_Clicked();
 
-            }
+            }*///PostDataService로 합쳐보자
         }
 
-    }
+
 
     @Override
     protected String doInBackground(String... strings) {
@@ -192,7 +188,7 @@ public class PostData extends AsyncTask<String, Void, String> {
         return result.toString();
     }
 
-    private void showResult(Context context, String data_line){
+    /*private void showResult(Context context, String data_line){
         Log.d("continent_result", "showResult before try");
         try{
             if(context == MainActivity.getContext()) {
@@ -266,7 +262,7 @@ public class PostData extends AsyncTask<String, Void, String> {
         } catch (JSONException e){
             e.printStackTrace();
         }
-    }
+    }*/
 
     private void CardView_Clicked(){
         stringDataCallback.onTaskDone(mJsonString);
