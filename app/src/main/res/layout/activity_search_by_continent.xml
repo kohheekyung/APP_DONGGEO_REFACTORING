@@ -24,7 +24,53 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <RadioGroup
+        <!-- 1: 유럽, 2: 아시아, 3: 오세아니아, 4: 아메리카, 5:아프리카 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:src="@android:drawable/ic_delete" />
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:src="@android:drawable/ic_delete" />
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:src="@android:drawable/ic_delete" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:src="@android:drawable/ic_delete" />
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:src="@android:drawable/ic_delete" />
+        </LinearLayout>
+
+        <!--<RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/radioGroup">
@@ -92,11 +138,12 @@
                 android:layout_gravity="center"
                 android:text="아프리카"
                 android:textAlignment="center" />
-        </RadioGroup>
+        </RadioGroup>-->
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="bottom">
 
             <Button
                 android:id="@+id/select_conti"
@@ -105,9 +152,8 @@
                 android:onClick="searchContiClicked"
                 android:text="대륙 선택 완료"/>
 
-        </LinearLayout>
+        </LinearLayout>-->
     </LinearLayout>
-
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

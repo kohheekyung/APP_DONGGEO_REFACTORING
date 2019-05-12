@@ -20,17 +20,18 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_main:
-                    mTextMessage.setText(R.string.title_main);
+                    intent = new Intent(MainActivity.this, MainActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_search:
-                    mTextMessage.setText(R.string.title_search);
+                    intent = new Intent(MainActivity.this, SearchByContinent.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_write:
                     intent = new Intent(MainActivity.this, WritePostActivity.class);
                     startActivity(intent);
                     return true;
                 case R.id.navigation_mypage:
-                    mTextMessage.setText(R.string.title_mypage);
                     return true;
             }
             return false;
