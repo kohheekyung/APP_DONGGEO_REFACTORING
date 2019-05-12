@@ -18,8 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".SearchByContinent" />
         <activity android:name=".SearchByValue"></activity>
+=======
+>>>>>>> b22ca13baba9883d4489b832c654630e85da2a13
         <activity android:name=".WritePostActivity"></activity>
     </application>
 

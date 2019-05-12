@@ -9,4 +9,4 @@
 /build
 /captures
 .externalNativeBuild
-/values/kakao_string.xml
+/app/src/main/res/values/kakaoString.xml
