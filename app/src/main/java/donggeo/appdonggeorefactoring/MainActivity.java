@@ -1,5 +1,6 @@
 package donggeo.appdonggeorefactoring;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        Intent intent;
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
@@ -24,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_search);
                     return true;
                 case R.id.navigation_write:
-                    mTextMessage.setText(R.string.title_write);
+                    intent = new Intent(MainActivity.this, WritePostActivity.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_mypage:
                     mTextMessage.setText(R.string.title_mypage);
