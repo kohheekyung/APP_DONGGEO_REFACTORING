@@ -149,7 +149,7 @@
                 android:id="@+id/select_conti"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onClick"
+                android:onClick="searchContiClicked"
                 android:text="대륙 선택 완료"/>
 
         </LinearLayout>-->
