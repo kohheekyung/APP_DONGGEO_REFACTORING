@@ -4,21 +4,25 @@
     <item
         android:id="@+id/navigation_main"
         android:icon="@drawable/ic_home_black_24dp"
+        android:iconTint="#303F9F"
         android:title="@string/title_main" />
 
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/ic_dashboard_black_24dp"
+        android:iconTint="#303F9F"
         android:title="@string/title_search" />
 
     <item
         android:id="@+id/navigation_write"
         android:icon="@drawable/ic_notifications_black_24dp"
+        android:iconTint="#303F9F"
         android:title="@string/title_write" />
 
     <item
         android:id="@+id/navigation_mypage"
         android:icon="@drawable/ic_notifications_black_24dp"
+        android:iconTint="#303F9F"
         android:title="@string/title_mypage" />
 
 </menu>
