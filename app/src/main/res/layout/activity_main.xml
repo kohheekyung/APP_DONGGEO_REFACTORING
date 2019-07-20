@@ -9,6 +9,15 @@
     tools:context=".MainActivity">
 
 
+<<<<<<< HEAD
+=======
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/viewPager"/>
+
+>>>>>>> f75b51d176fc06e87090e153c8073460bd641bbb
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"

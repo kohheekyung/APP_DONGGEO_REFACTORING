@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    ViewPager viewPager;
+    int images[] = {R.drawable.make, R.drawable.south_korea, R.drawable.north_korea, R.drawable.vietnam, R.drawable.united_kingdom};
+    MyCustomPagerAdapter myCustomPagerAdapter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -46,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+
+        myCustomPagerAdapter = new MyCustomPagerAdapter(MainActivity.this, images);
+        viewPager.setAdapter(myCustomPagerAdapter);
     }
 
 }
