@@ -51,6 +51,112 @@
         android:layout_weight="9">
 
     </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/viewPager"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:background="#82CAFF"
+            android:gravity="center">
+
+            <TextView
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:text="국기"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:text="국가"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:text="환율"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <ImageView
+                android:id="@+id/flag1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/flag" />
+            <TextView
+                android:id="@+id/country1"
+                android:layout_margin="1dp"
+                android:text="2"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/rate1"
+                android:layout_margin="1dp"
+                android:text="2"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <ImageView
+                android:id="@+id/flag2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/flag" />
+            <TextView
+                android:id="@+id/country2"
+                android:layout_margin="1dp"
+                android:text="2"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/rate2"
+                android:layout_margin="1dp"
+                android:text="2"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <ImageView
+                android:id="@+id/flag3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/flag" />
+            <TextView
+                android:id="@+id/country3"
+                android:layout_margin="1dp"
+                android:text="2"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/rate3"
+                android:layout_margin="1dp"
+                android:text="2"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <ImageView
+                android:id="@+id/flag4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/flag" />
+            <TextView
+                android:id="@+id/country4"
+                android:layout_margin="1dp"
+                android:text="2"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/rate4"
+                android:layout_margin="1dp"
+                android:text="2"
+                android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

@@ -19,10 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".SearchByContinent"></activity>
-        <activity android:name=".SearchByValue"></activity>
-        <activity android:name=".WritePostActivity"></activity>
+        <activity android:name=".SearchByContinent" />
+        <activity android:name=".SearchByValue" />
+        <activity android:name=".WritePostActivity" />
     </application>
 
 </manifest>
