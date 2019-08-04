@@ -31,11 +31,11 @@ public class SearchByContinent extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_main:
                     intent = new Intent(SearchByContinent.this, MainActivity.class);
-                    context.startActivity(intent);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_search:
-                    intent = new Intent(SearchByContinent.this, SearchByValue.class);
-                    context.startActivity(intent);
+                    intent = new Intent(SearchByContinent.this, SearchByContinent.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_write:
                     intent = new Intent(SearchByContinent.this, WritePostActivity.class);

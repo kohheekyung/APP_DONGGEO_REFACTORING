@@ -64,7 +64,7 @@ public class SearchByValue extends AppCompatActivity {
                     context.startActivity(intent);
                     return true;
                 case R.id.navigation_search:
-                    intent = new Intent(SearchByValue.this, SearchByValue.class);
+                    intent = new Intent(SearchByValue.this, SearchByContinent.class);
                     context.startActivity(intent);
                     return true;
                 case R.id.navigation_write:
