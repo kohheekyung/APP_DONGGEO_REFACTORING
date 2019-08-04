@@ -2,6 +2,7 @@ package donggeo.appdonggeorefactoring;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,14 +40,6 @@ public class MyCustomPagerAdapter extends PagerAdapter{
         imageView.setImageResource(images[position]);
 
         container.addView(itemView);
-
-        //listening to image click
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "you clicked image " + (position + 1), Toast.LENGTH_LONG).show();
-            }
-        });
 
         return itemView;
     }
