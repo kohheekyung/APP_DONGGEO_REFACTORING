@@ -17,7 +17,11 @@ public class GlobalApplication extends Application {
         super.onCreate();
         instance = this;
 
+
+
 //        KakaoSDK.init(new KakaoSDKAdapter());
+
+
     }
 
     public static Activity getCurrentActivity() {
