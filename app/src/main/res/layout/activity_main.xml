@@ -51,20 +51,20 @@
         android:layout_weight="9">
 
     </LinearLayout>
+
     <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/viewPager"/>
+        android:layout_height="236dp" />
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:padding="8dp"
         android:stretchColumns="*">
 
         <TableRow
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:background="#82CAFF"
             android:gravity="center">
 
@@ -96,7 +96,7 @@
 
         <TableRow
             android:layout_height="53dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center">
 
             <ImageView
@@ -125,7 +125,7 @@
         </TableRow>
 
         <TableRow
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center">
 
             <ImageView
@@ -154,7 +154,7 @@
         </TableRow>
 
         <TableRow
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center">
 
             <ImageView
@@ -182,9 +182,7 @@
                 android:textStyle="bold" />
         </TableRow>
 
-        <TableRow
-            android:layout_marginBottom="20dp"
-            android:gravity="center">
+        <TableRow android:gravity="center">
 
             <ImageView
                 android:id="@+id/flag4"
