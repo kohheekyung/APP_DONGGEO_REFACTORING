@@ -23,6 +23,7 @@
         <activity android:name=".SearchByContinent"></activity>
         <activity android:name=".SearchByValue"></activity>
         <activity android:name=".WritePostActivity"></activity>
+
     </application>
 
 </manifest>
